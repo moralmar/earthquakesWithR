@@ -15,51 +15,66 @@ require(leaflet)
 require(readr) # required for the fcn: eq_clean_data()
 require(htmltools)
 
-
+#' Visualization of Earth Quakes
+#'
+#' \code{eq_map} creates a Leaflet map, adds a polygon according to the chosen
+#' country and adds the earthquakes as points (size according to magnitude)
+#'
+#' @param data_filtered A dataframe
+#' @param annot_col Which column shall be displayed in the pop-up
+#'
+#' @return this function gives back a leaflet map. It includes various features.
+#'
+#' @examples
+#' eq_clean_data() %>%
+#' dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
+#' eq_map(annot_col = "date")
+#'
+#' @export
 eq_map <- function(data_filtered, annot_col = "date") {
-        
+
         # for: downloading each time / (in temp folder)
         #
         # utils::download.file(base::file.path('http://www.naturalearthdata.com/http/',
         #                         'www.naturalearthdata.com/download/50m/cultural',
-        #                         'ne_50m_admin_0_countries.zip'), 
+        #                         'ne_50m_admin_0_countries.zip'),
         #               f <- tempfile())
         # utils::unzip(f, exdir=tempdir())
         # world <- rgdal::readOGR(tempdir(), 'ne_50m_admin_0_countries', encoding='UTF-8')
-        
-        
+
+
         # for: downloading file into 010_data folder
         # download.file(file.path('http://www.naturalearthdata.com/http/',
         #                         'www.naturalearthdata.com/download/50m/cultural',
-        #                         'ne_50m_admin_0_countries.zip'), 
+        #                         'ne_50m_admin_0_countries.zip'),
         #                  "./inst/extdata/ne_50m_admin_0_countries.zip")
         # unzip("./inst/extdata/ne_50m_admin_0_countries.zip", exdir = "./inst/extdata")
-        # 
+        #
         # world <- readOGR("./inst/extdata", 'ne_50m_admin_0_countries', encoding='UTF-8')
-        
-        
+
+
         world <- rgdal::readOGR("./inst/extdata", 'ne_50m_admin_0_countries', encoding='UTF-8')
         involved_countries <- base::unique(data_filtered$COUNTRY)
-        
+
         data_filtered <- data_filtered %>%
                 dplyr::mutate_(popup_col = base::as.name(annot_col))
-        
+
         m <- leaflet(data_filtered) %>%
                 leaflet::addTiles() %>%
                 leaflet::addProviderTiles("OpenMapSurfer.Roads") %>%  # OpenTopoMap
-                leaflet::addPolygons(data = base::subset(world, name %in% stringr::str_to_title(involved_countries)), 
+                leaflet::addPolygons(data = base::subset(world, name %in% stringr::str_to_title(involved_countries)),
                             weight = 2,
-                            opacity = 0.8, 
-                            fillOpacity = 0.3, 
+                            opacity = 0.8,
+                            fillOpacity = 0.3,
                             fillColor = "red") %>%
                 leaflet::addCircleMarkers(
-                        lng = ~LONGITUDE, 
-                        lat = ~LATITUDE, 
+                        lng = ~LONGITUDE,
+                        lat = ~LATITUDE,
                         radius = ~EQ_PRIMARY^1.4, # 1.4: scale factor; only for visual effects
                         weight = 3,
                         color = c('maroon'),  # maroon purple
                         # label = ~htmltools::HTML(popup_col),
-                        label = ~base::as.character(EQ_PRIMARY), 
+                        label = ~base::as.character(EQ_PRIMARY),
                         # to do:
                         #     I didn't manage this
                         #     label = ~htmltools::HTML(popup_col),
@@ -71,28 +86,36 @@ eq_map <- function(data_filtered, annot_col = "date") {
         m
 } # END eq_map
 
+
+
+
+
+
+#' Creates Labes for the leaflet map
+#'
+#' \code{eq_map} creates a string / character combining some information to display
+#' in the pop-up
+#'
+#' @param data This data frame is the whole earth quake data
+#'
+#' @return this function gives back a vector with character strings
+#'
+#' @examples
+#' eq_clean_data() %>%
+#' dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
+#' dplyr::mutate(popup_text = eq_create_label(.)) %>%
+#' eq_map(annot_col = "popup_text")
+#'
+#' @export
 eq_create_label <- function(data) {
-        
+
         # good reading: https://rstudio.github.io/leaflet/popups.html
-        
-        txt <- base::paste0("<b>Country: </b>", data$COUNTRY, "<br/>", 
+
+        txt <- base::paste0("<b>Country: </b>", data$COUNTRY, "<br/>",
                             "<b>Location: </b>", data$LOCATION_NAME,  "<br/>",
                             "<b>Magnitude: </b>", data$EQ_PRIMARY,  "<br/>",
-                            "<b>Total Deaths: </b>", data$TOTAL_DEATHS, "<br/>", 
+                            "<b>Total Deaths: </b>", data$TOTAL_DEATHS, "<br/>",
                             "<b>Date: </b>", data$date)
 } # END eq_create_label
 
-
-
-# EASY & WORKS
-eq_clean_data() %>%
-        dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
-        eq_map(annot_col = "date")
-
-
-eq_clean_data() %>% 
-        dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>% 
-        dplyr::mutate(popup_text = eq_create_label(.)) %>%
-
-        eq_map(annot_col = "popup_text")
 

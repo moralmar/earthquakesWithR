@@ -171,7 +171,7 @@ eq_location_clean <- function(data){
 #' @export
 eq_clean_data <- function() {
 
-        data <- read_tsv("./inst/extdata/results") %>%
+        data <- readr::read_tsv("./inst/extdata/results") %>%
 
                 # replacing NA's in MONTH
                 #     This is not that good

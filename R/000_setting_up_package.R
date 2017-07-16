@@ -7,7 +7,7 @@ require(devtools)
 
 # document()
 
-
+# next step: roxygen2....create namespace with this package?
 
 # use_vignette("vignette_intro.rmd")
 #     adds folder "vignettes"

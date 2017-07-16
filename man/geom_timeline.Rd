@@ -9,9 +9,21 @@ geom_timeline(mapping = NULL, data = NULL, stat = "identity",
   inherit.aes = TRUE, ...)
 }
 \arguments{
-\item{mapping}{}
+\item{mapping}{See \code{ggplot2} \code{\link[ggplot2]{layer}}}
 
-\item{inherit.aes}{}
+\item{data}{See \code{ggplot2} \code{\link[ggplot2]{layer}}}
+
+\item{stat}{See \code{ggplot2} \code{\link[ggplot2]{layer}}}
+
+\item{position}{See \code{ggplot2} \code{\link[ggplot2]{layer}}}
+
+\item{na.rm}{See \code{ggplot2} \code{\link[ggplot2]{layer}}}
+
+\item{show.legend}{See \code{ggplot2} \code{\link[ggplot2]{layer}}}
+
+\item{inherit.aes}{See \code{ggplot2} \code{\link[ggplot2]{layer}}}
+
+\item{...}{other arguments passed on to \code{\link{layer}}.}
 }
 \description{
 Function which builts the layer for the ggplot

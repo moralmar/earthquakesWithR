@@ -7,9 +7,11 @@
 draw_panel_function(data, panel_scales, coord)
 }
 \arguments{
-\item{data}{}
+\item{data}{earth quake data set}
 
-\item{coord}{}
+\item{panel_scales}{I don't know what that is}
+
+\item{coord}{transformed data set}
 }
 \description{
 Outsourced function which builts the plot

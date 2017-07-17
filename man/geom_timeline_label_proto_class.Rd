@@ -5,19 +5,6 @@
 \alias{geom_timeline_label_proto_class}
 \title{Function creates the new geom (geom_timeline_label)
 draw_panel_function is outsourced...looks nicer}
-\format{An object of class \code{geom_timeline_label_proto_class} (inherits from \code{Geom}, \code{ggproto}) of length 5.}
-\usage{
-geom_timeline_label_proto_class
-}
-\arguments{
-\item{required_aes}{necessary aes inputs for the geom}
-
-\item{default_aes}{default values}
-
-\item{draw_key}{function to draw the legend with the associated geom}
-
-\item{draw_panel}{where the magic is happening}
-}
 \description{
 Function creates the new geom (geom_timeline_label)
 draw_panel_function is outsourced...looks nicer

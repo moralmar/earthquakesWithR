@@ -23,7 +23,7 @@ geom_timeline_label(mapping = NULL, data = NULL, stat = "identity",
 
 \item{inherit.aes}{See \code{ggplot2} \code{\link[ggplot2]{layer}}}
 
-\item{...}{other arguments passed on to \code{\link{layer}}.}
+\item{...}{other arguments passed on to \code{\link[ggplot2]{layer}}}
 }
 \description{
 Function which builts the layer for the ggplot

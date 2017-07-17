@@ -18,6 +18,7 @@
 ##     next function is:
 
 #' Function which builts the layer for the ggplot
+#' @importFrom ggplot2 layer
 #'
 #' @param mapping See \code{ggplot2} \code{\link[ggplot2]{layer}}
 #' @param data See \code{ggplot2} \code{\link[ggplot2]{layer}}
@@ -26,7 +27,7 @@
 #' @param na.rm See \code{ggplot2} \code{\link[ggplot2]{layer}}
 #' @param show.legend See \code{ggplot2} \code{\link[ggplot2]{layer}}
 #' @param inherit.aes See \code{ggplot2} \code{\link[ggplot2]{layer}}
-#' @param ... other arguments passed on to \code{\link{layer}}.
+#' @param ... other arguments passed on to \code{\link[ggplot2]{layer}}
 #'
 #' @export
 geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
@@ -101,11 +102,8 @@ draw_panel_function <- function(data, panel_scales, coord) {
 #' Function creates the new geom (geom_timeline)
 #' draw_panel_function is outsourced...looks nicer
 #'
-#' @param required_aes necessary aes inputs for the geom
-#' @param default_aes default values
-#' @param draw_key function to draw the legend with the associated geom
-#' @param draw_panel where the magic is happening
-#'
+#' @format NULL
+#' @usage NULL
 #' @export
 geom_timeline_proto_class <- ggplot2::ggproto("geom_timeline_proto_class", ggplot2::Geom,
 

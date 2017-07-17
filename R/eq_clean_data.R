@@ -6,7 +6,7 @@
 ##                              Marco R. Morales                              ##
 ##                                                                            ##
 ##                                                                            ##
-## created: 09.07.2017                                last update: 16.07.2017 ##
+## created: 09.07.2017                                last update: 17.07.2017 ##
 ################# ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ #################
 
 
@@ -33,21 +33,19 @@
 #'
 #' @return Date as a date class, and which is negative
 #'
-#' @export
-#'
 #' @examples
 #' handle_negative_dates(-100, 1, 1)
 
 handle_negative_dates <- function(y, m, d) {
 
-        origin_date <- as.numeric(as.Date("0 1 1", "%Y %m %d", origin = "1970-01-01"))
+        origin_date <- base::as.numeric(as.Date("0 1 1", "%Y %m %d", origin = "1970-01-01"))
         # > origin_date
         # [1] -719528
-        mirror_date <- as.Date(paste(-y-1, 13-m, abs(27-d)+1, sep = '-'), '%Y-%m-%d', origin = '1970-01-01') # -y -1 (?)  # abs(27-d)+1
+        mirror_date <- base::as.Date(paste(-y-1, 13-m, abs(27-d)+1, sep = '-'), '%Y-%m-%d', origin = '1970-01-01') # -y -1 (?)  # abs(27-d)+1
         # example with year: y = -2000
         # > mirror_date
         # [1] "2000-01-01"
-        mirror_date_num <- as.numeric(mirror_date)
+        mirror_date_num <- base::as.numeric(mirror_date)
         # > mirror_date_num
         # [1] 10957
         delta <- origin_date - mirror_date_num
@@ -85,8 +83,6 @@ handle_negative_dates <- function(y, m, d) {
 #'
 #' @return Date as a date class, and which is positive
 #'
-#' @export
-#'
 #' @examples
 #' handle_positive_dates(2010, 10, 10)
 handle_positive_dates <- function(y, m, d) {
@@ -110,6 +106,10 @@ handle_positive_dates <- function(y, m, d) {
 #'
 #' @param data A data frame of NOAA significant earthquake data
 #'
+#' @importFrom magrittr "%>%"
+#' @importFrom purrr map2_chr
+#' @importFrom stringr str_trim str_to_title
+#' @importFrom dplyr mutate
 #' @return it returns the data frame back, but with the mutated LOCATION_NAME
 #'
 #' @export
@@ -166,12 +166,19 @@ eq_location_clean <- function(data){
 #' \code{eq_clean_data} loads the data, cleans the data (including the LOCATION_NAME variable)
 #' and gives back the data frame. There is no input to this function
 #'
+#' @importFrom magrittr "%>%"
+#' @importFrom readr read_tsv
+#' @importFrom dplyr mutate
+#'
 #' @return it returns the data frame, cleaned and with correct dates (with date class)
 #'
 #' @export
 eq_clean_data <- function() {
 
-        data <- readr::read_tsv("./inst/extdata/results") %>%
+        # (!!) original name of data is "results"
+        # (!!) rename it to NOAAearthquakes
+
+        data <- readr::read_tsv("./inst/extdata/NOAAearthquakes") %>%
 
                 # replacing NA's in MONTH
                 #     This is not that good

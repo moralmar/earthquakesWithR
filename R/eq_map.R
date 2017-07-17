@@ -6,14 +6,14 @@
 ##                              Marco R. Morales                              ##
 ##                                                                            ##
 ##                                                                            ##
-## created: 15.07.2017                                last update: 15.07.2017 ##
+## created: 15.07.2017                                last update: 17.07.2017 ##
 ################# ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ #################
 
-source("./R/eq_clean_data.R")
-require(magrittr)
-require(leaflet)
-require(readr) # required for the fcn: eq_clean_data()
-require(htmltools)
+# source("./R/eq_clean_data.R")
+# require(magrittr)
+# require(leaflet)
+# require(readr) # required for the fcn: eq_clean_data()
+# require(htmltools)
 
 #' Visualization of Earth Quakes
 #'
@@ -22,6 +22,12 @@ require(htmltools)
 #'
 #' @param data_filtered A dataframe
 #' @param annot_col Which column shall be displayed in the pop-up
+#'
+#' @importFrom rgdal readOGR
+#' @importFrom magrittr "%>%"
+#' @importFrom dplyr mutate_ gpar
+#' @importFrom leaflet leaflet addTiles addProviderTiles addPolygons addCircleMarkers
+#' @importFrom stringr str_to_title
 #'
 #' @return this function gives back a leaflet map. It includes various features.
 #'
@@ -59,7 +65,7 @@ eq_map <- function(data_filtered, annot_col = "date") {
         data_filtered <- data_filtered %>%
                 dplyr::mutate_(popup_col = base::as.name(annot_col))
 
-        m <- leaflet(data_filtered) %>%
+        m <- leaflet::leaflet(data_filtered) %>%
                 leaflet::addTiles() %>%
                 leaflet::addProviderTiles("OpenMapSurfer.Roads") %>%  # OpenTopoMap
                 leaflet::addPolygons(data = base::subset(world, name %in% stringr::str_to_title(involved_countries)),

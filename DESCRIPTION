@@ -2,14 +2,20 @@ Package: earthquakesWithR
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Marco R. Morales <marcorobertomorales@gmail.com>
+Maintainer: Marco R. Morales <marcorobertomorales@gmail.com>
+Description: Visualization tools for the NOAA earth quake data
+License: CC0
 Encoding: UTF-8
 LazyData: true
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
+Imports: dplyr (>= 0.5),
+    ggplot2 (>= 2.2.1),
+    leaflet (>= 1.1.0),
+    purrr (>= 0.2.2),
+    stringr (>= 1.2.0), 
+    magrittr,
+    rgdal

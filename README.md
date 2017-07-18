@@ -21,11 +21,16 @@ You can install `earthquakesWithR` from github with:
 devtools::install_github("moralmar/earthquakesWithR")
 ```
 
-Example
--------
+Data
+----
 
-This is a basic example which shows you how to solve a common problem:
+The Significant Earthquake Database contains information on destructive earthquakes from 2150 B.C. to the present that meet at least one of the following criteria: Moderate damage (approximately $1 million or more), 10 or more deaths, Magnitude 7.5 or greater, Modified Mercalli Intensity X or greater, or the earthquake generated a tsunami.
+Feel free to browse through the code as follows:
 
 ``` r
-## basic example code
+# To load the earth quake data and have a look:
+data("NOAAearthquakes")
+
+# the following is a spatial polygon data frame, which merely gives a nice touch to the leaflet map
+data("world")
 ```

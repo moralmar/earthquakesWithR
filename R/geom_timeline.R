@@ -17,7 +17,8 @@
 ##     geom specification is defined in the next function
 ##     next function is:
 
-#' Function which builts the layer for the ggplot
+#' Function which builts the layer for the ggplot.
+#'
 #' @importFrom ggplot2 layer
 #'
 #' @param mapping See \code{ggplot2} \code{\link[ggplot2]{layer}}
@@ -50,7 +51,7 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
 ##     function within ggproto
 ##     I outsourced due to its length & it looks nicer
 
-#' Outsourced function which builts the plot
+#' Outsourced function which builts the plot.
 #'
 #' @importFrom ggplot2 ggproto
 #' @importFrom grid pointsGrob gpar
@@ -69,12 +70,12 @@ draw_panel_function <- function(data, panel_scales, coord) {
         # resizing the oints
         coords$size <- coords$size / base::max(coords$size) * 1.3
 
-        base::cat("==================================== coords ====================================\n")
-        base::cat("================================================================================ \n\n")
-        base::print(base::head(coords))
-        base::cat("...\n")
-        base::print(base::tail(coords))
-        base::cat("=================================================================================== \n\n")
+        # base::cat("==================================== coords ====================================\n")
+        # base::cat("================================================================================ \n\n")
+        # base::print(base::head(coords))
+        # base::cat("...\n")
+        # base::print(base::tail(coords))
+        # base::cat("=================================================================================== \n\n")
 
 
         grid::pointsGrob(
@@ -99,7 +100,8 @@ draw_panel_function <- function(data, panel_scales, coord) {
 ##     Chapter 4.7.1 in the book: building a geoms
 ##
 
-#' Function creates the new geom (geom_timeline)
+#' Function creates the new geom (geom_timeline).
+#'
 #' draw_panel_function is outsourced...looks nicer
 #'
 #' @format NULL

@@ -30,4 +30,5 @@ equal in days.
 }
 \examples{
 handle_negative_dates(-100, 1, 1)
+
 }

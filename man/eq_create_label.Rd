@@ -17,6 +17,7 @@ this function gives back a vector with character strings
 in the pop-up
 }
 \examples{
+require(magrittr)
 eq_clean_data() \%>\%
 dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) \%>\%
 dplyr::mutate(popup_text = eq_create_label(.)) \%>\%

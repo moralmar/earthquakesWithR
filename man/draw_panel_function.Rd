@@ -2,7 +2,7 @@
 % Please edit documentation in R/geom_timeline.R
 \name{draw_panel_function}
 \alias{draw_panel_function}
-\title{Outsourced function which builts the plot}
+\title{Outsourced function which builts the plot.}
 \usage{
 draw_panel_function(data, panel_scales, coord)
 }
@@ -14,5 +14,5 @@ draw_panel_function(data, panel_scales, coord)
 \item{coord}{transformed data set}
 }
 \description{
-Outsourced function which builts the plot
+Outsourced function which builts the plot.
 }

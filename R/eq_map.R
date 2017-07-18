@@ -32,6 +32,7 @@
 #' @return this function gives back a leaflet map. It includes various features.
 #'
 #' @examples
+#' require(magrittr)
 #' eq_clean_data() %>%
 #' dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
 #' eq_map(annot_col = "date")
@@ -59,7 +60,9 @@ eq_map <- function(data_filtered, annot_col = "date") {
         # world <- readOGR("./inst/extdata", 'ne_50m_admin_0_countries', encoding='UTF-8')
 
 
-        world <- rgdal::readOGR("./inst/extdata", 'ne_50m_admin_0_countries', encoding='UTF-8')
+        # world <- rgdal::readOGR("./inst/extdata", 'ne_50m_admin_0_countries', encoding='UTF-8')
+
+        data(world)
         involved_countries <- base::unique(data_filtered$COUNTRY)
 
         data_filtered <- data_filtered %>%
@@ -95,7 +98,7 @@ eq_map <- function(data_filtered, annot_col = "date") {
 
 
 
-
+# good reading: https://rstudio.github.io/leaflet/popups.html
 
 #' Creates Labes for the leaflet map
 #'
@@ -107,6 +110,7 @@ eq_map <- function(data_filtered, annot_col = "date") {
 #' @return this function gives back a vector with character strings
 #'
 #' @examples
+#' require(magrittr)
 #' eq_clean_data() %>%
 #' dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
 #' dplyr::mutate(popup_text = eq_create_label(.)) %>%
@@ -114,8 +118,6 @@ eq_map <- function(data_filtered, annot_col = "date") {
 #'
 #' @export
 eq_create_label <- function(data) {
-
-        # good reading: https://rstudio.github.io/leaflet/popups.html
 
         txt <- base::paste0("<b>Country: </b>", data$COUNTRY, "<br/>",
                             "<b>Location: </b>", data$LOCATION_NAME,  "<br/>",

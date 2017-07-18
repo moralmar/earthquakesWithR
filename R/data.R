@@ -16,3 +16,15 @@
 #'   doi:10.7289/V5TD9V7K
 #'   \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}
 "NOAAearthquakes"
+
+#' World Shapefile
+#'
+#' Free vector and raster map data
+#'
+#' @format A spatial polygon data frame with 241 elements. Each element represents a
+#'   polygon of a country.
+#'
+#' @source From the Natural Earth Data Homepage: zip file with the name:
+#'     'ne_50m_admin_0_countries.zip'.
+#'     \url{www.naturalearthdata.com/download/50m/cultural}
+"world"

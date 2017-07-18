@@ -35,7 +35,7 @@
 #'
 #' @examples
 #' handle_negative_dates(-100, 1, 1)
-
+#'
 handle_negative_dates <- function(y, m, d) {
 
         origin_date <- base::as.numeric(as.Date("0 1 1", "%Y %m %d", origin = "1970-01-01"))
@@ -110,6 +110,7 @@ handle_positive_dates <- function(y, m, d) {
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_trim str_to_title
 #' @importFrom dplyr mutate
+#'
 #' @return it returns the data frame back, but with the mutated LOCATION_NAME
 #'
 #' @export

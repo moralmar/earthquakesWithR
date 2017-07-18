@@ -2,7 +2,7 @@
 % Please edit documentation in R/geom_timeline.R
 \name{geom_timeline}
 \alias{geom_timeline}
-\title{Function which builts the layer for the ggplot}
+\title{Function which builts the layer for the ggplot.}
 \usage{
 geom_timeline(mapping = NULL, data = NULL, stat = "identity",
   position = "identity", na.rm = FALSE, show.legend = NA,
@@ -26,5 +26,5 @@ geom_timeline(mapping = NULL, data = NULL, stat = "identity",
 \item{...}{other arguments passed on to \code{\link[ggplot2]{layer}}}
 }
 \description{
-Function which builts the layer for the ggplot
+Function which builts the layer for the ggplot.
 }

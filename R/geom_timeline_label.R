@@ -66,7 +66,7 @@ geom_timeline_label <- function(mapping = NULL, data = NULL, stat = "identity",
 
 #' Outsourced function which builts the plot
 #'
-#' @importFrom ggplot2 ggproto
+#' @importFrom ggplot2 ggproto ggname
 #' @importFrom grid pointsGrob gpar
 #' @param data earth quake data set
 #' @param panel_scales I don't know what that is
@@ -104,15 +104,15 @@ draw_panel_function_label <- function(data, panel_scales, coord) {
         #         dplyr::top_n(n_max, magnitude)
 
         # the data frame "data" has the data/coords/points I can work with:
-        cat("==================================== data (DF) =================================\n")
-        cat("=================================== head & tail ================================\n")
-        cat("================================================================================ \n\n")
-        print(head(data))
-        cat("...\n")
-        cat("...\n")
-        cat("...\n")
-        print(tail(data))
-        cat("=================================================================================== \n\n")
+        # cat("==================================== data (DF) =================================\n")
+        # cat("=================================== head & tail ================================\n")
+        # cat("================================================================================ \n\n")
+        # print(head(data))
+        # cat("...\n")
+        # cat("...\n")
+        # cat("...\n")
+        # print(tail(data))
+        # cat("=================================================================================== \n\n")
 
 
         # vertical line
@@ -136,7 +136,7 @@ draw_panel_function_label <- function(data, panel_scales, coord) {
         # data$color <- "red"
         gg_text <- ggplot2::GeomText$draw_panel(data, panel_scales, coord)
 
-        ggplot2:::ggname("geom_timeline_label", grid::grobTree(gg_vertical, gg_text, gg_point))
+        ggplot2::ggname("geom_timeline_label", grid::grobTree(gg_vertical, gg_text, gg_point))
 
 } # END draw_panel_function_label
 
@@ -150,6 +150,11 @@ draw_panel_function_label <- function(data, panel_scales, coord) {
 ##     ggproto() creates new class corresponding to new geom (geom_timeline_label)
 ##     Chapter 4.7.1 in the book: building a geoms
 ##
+# @param required_aes necessary aes inputs for the geom
+# @param default_aes default values
+# @param draw_key function to draw the legend with the associated geom
+# @param draw_panel where the magic is happening
+
 
 #' Function creates the new geom (geom_timeline_label)
 #' draw_panel_function is outsourced...looks nicer
@@ -157,11 +162,6 @@ draw_panel_function_label <- function(data, panel_scales, coord) {
 #'
 #' @format NULL
 #' @usage NULL
-#' @export
-# @param required_aes necessary aes inputs for the geom
-# @param default_aes default values
-# @param draw_key function to draw the legend with the associated geom
-# @param draw_panel where the magic is happening
 #'
 #' @export
 geom_timeline_label_proto_class <- ggplot2::ggproto("geom_timeline_label_proto_class", ggplot2::Geom,

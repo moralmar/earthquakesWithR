@@ -3,10 +3,8 @@
 \docType{data}
 \name{geom_timeline_proto_class}
 \alias{geom_timeline_proto_class}
-\title{Function creates the new geom (geom_timeline)
-draw_panel_function is outsourced...looks nicer}
+\title{Function creates the new geom (geom_timeline).}
 \description{
-Function creates the new geom (geom_timeline)
 draw_panel_function is outsourced...looks nicer
 }
 \keyword{datasets}

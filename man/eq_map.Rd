@@ -19,6 +19,7 @@ this function gives back a leaflet map. It includes various features.
 country and adds the earthquakes as points (size according to magnitude)
 }
 \examples{
+require(magrittr)
 eq_clean_data() \%>\%
 dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) \%>\%
 eq_map(annot_col = "date")

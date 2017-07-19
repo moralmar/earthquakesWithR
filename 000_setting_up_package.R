@@ -55,14 +55,16 @@ use_data(NOAAearthquakes)
 
 # 7) Check ------------------------------------------------------
 devtools::document()
+devtools::load_all()
 devtools::check()
 
 # 8) testthat  --------------------------------------------------
 devtools::use_testthat()        # page 82 // addes directory
                                 # addes field in DESCRIPTION
+                                # (!!) use once
 
 # 14) Travis  ---------------------------------------------------
-devtools::use_travis()
+devtools::use_travis()  # (!!) use once - gives yaml file
 
 
 # source....

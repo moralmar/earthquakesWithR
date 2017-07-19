@@ -1,4 +1,4 @@
-library(testthat)
-library(earthquakesWithR)
+require(testthat)
+require(earthquakesWithR)
 
 test_check("earthquakesWithR")

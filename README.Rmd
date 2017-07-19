@@ -22,6 +22,11 @@ The goal of `earthquakesWithR` is to give a few handy visualization tools for th
 - **eq_map()** - a function creating a `leaflet` map and visualizing the earth quakes  
 - **eq_create_label()** - is a helper function, creating a nice pop-ups in the leaflet map  
 
+
+#### Ike Storm 2008-09-13 12:00:00
+This plot is one of the results coming from the assignment
+![alt text](https://raw.githubusercontent.com/moralmar/earthquakesWithR/master/vignettes/Mexico_simple.png)
+
 ## Installation
 
 You can install `earthquakesWithR` from github with:
@@ -52,7 +57,7 @@ Here are three simple examples, showing
 - a single country with labels  
 - and showing multiple countries, also with lables
 
-```{r}
+```{r, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .32}
 require(earthquakesWithR)
 require(magrittr) # for piping operator
 require(dplyr) # for filter/subsetting functions
@@ -70,7 +75,7 @@ ggplot() +
         theme_classic()
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .32}
 # Load the data and filter it accordingly to your needs
 quakes <- eq_clean_data()
 quakes_filtered <- quakes %>%
@@ -88,7 +93,7 @@ ggplot() +
 ```
 
 
-```{r}
+```{r, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .42}
 # Load the data and filter it accordingly to your needs
 quakes <- eq_clean_data()
 quakes_filtered <- quakes %>%
@@ -101,7 +106,18 @@ ggplot() +
                                                  y = COUNTRY,
                                                  magnitude = EQ_PRIMARY,
                                                  label = LOCATION_NAME,
-                                                 n_max = 6)) +
+                                                 n_max = 4)) +
         theme_classic()
+```
+
+
+## Example - Leaflet Map
+
+Besides the added timeline geom-functions, the package provides a few function which helps to easily create a `leaflet map`. What these functions do is shown below. Keep in mind that these are static maps, respectively print screens of the leaflet map (because the README.rm is a static file format). 
+
+```{r}
+# in addition to the earthquakesWithR package, we need:
+require(leaflet)
+
 ```
 

@@ -18,23 +18,8 @@
 #
 # # packages
 # require(readr)
-require(magrittr)
-require(dplyr)
 # require(purrr)
 # require(stringr)
-#
-# source("./R/eq_clean_data.R")
-#
-data <- eq_clean_data()
-#
-require(ggplot2)
-require(ggthemes)
-#
-dataTEST <- data[data$COUNTRY %in% c("USA", "CHINA"), ]
-dataTEST <- data %>%
-        filter(COUNTRY %in% c("USA", "CHINA") & YEAR >= 1000)
-#
-#
 
 ## ggplot - but "self-made" --------------------------------------------------
 # ggplot(dataTEST, aes(x = date, y = COUNTRY, fill = TOTAL_DEATHS, size = EQ_PRIMARY)) +
@@ -51,16 +36,26 @@ dataTEST <- data %>%
 # # #-----
 # # source("./R/geom_timeline.R")
 # # source("./R/geom_timeline_label.R")
-ggplot() +
-        geom_timeline(data = dataTEST, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
-        geom_timeline_label(data = dataTEST, aes(x = date,
-                                                 y = COUNTRY,
-                                                 magnitude = EQ_PRIMARY,
-                                                 label = LOCATION_NAME,
-                                                 n_max = 8)) +
-        theme_classic()
+
+
+
+# require(magrittr)
+# require(dplyr)
+# require(ggplot2)
+# require(ggthemes)
 #
+# data <- eq_clean_data()
 #
+# dataTEST <- data %>%
+#         filter(COUNTRY %in% c("USA", "CHINA") & YEAR >= 1000)
 #
-#
+# ggplot() +
+#         geom_timeline(data = dataTEST, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
+#         geom_timeline_label(data = dataTEST, aes(x = date,
+#                                                  y = COUNTRY,
+#                                                  magnitude = EQ_PRIMARY,
+#                                                  label = LOCATION_NAME,
+#                                                  n_max = 8)) +
+#         theme_classic()
+
 

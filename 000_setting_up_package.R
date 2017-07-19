@@ -45,7 +45,6 @@ devtools::load_all()
 ?eq_map
 
 
-
 # 6) ----------------------------------------------------------
 # source("./R/eq_clean_data.R")...NO
 # package is loaded...therefore use function without sourcing before

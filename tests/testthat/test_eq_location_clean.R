@@ -9,25 +9,22 @@
 ## created: 19.07.2017                                last update: 19.07.2017 ##
 ################# ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ #################
 
-context("clean data")
+context('Location Clean Function')
 
 # load data from package
 df <- NOAAearthquakes
-df_clean <- eq_clean_data()
+df_clean <- eq_location_clean(df)
 
-test_that("MMORALES:Is eq_clean_data() function working properly (??)", {
+test_that('MMORALES:Is eq_location_clean(data) function working properly (??)', {
 
 
+        expect_is(df_clean$LOCATION_NAME, 'character')
 
-        # expect_equal(ncol(df), ncol(df_clean))
-        # expect_equal(nrow(df), nrow(df_clean))
-        expect_is(df_clean$date, "Date")
-        expect_is(df_clean$LATITUDE, "numeric")
-        expect_is(df_clean$LONGITUDE, "numeric")
-        expect_is(df_clean$DEATHS, "integer")   # you could reformat the column into numeric, theoretically.
-                                                # But I kept it. Does 3.5 deaths make sense?
-        expect_is(df_clean$EQ_PRIMARY, "numeric")
-
+        # is it in title case?
+        expect_equal(df_clean$LOCATION_NAME,
+                     df_clean$LOCATION_NAME %>%  # transform first to lower then title
+                             stringr::str_to_lower() %>%
+                             stringr::str_to_title())
 })
 
 

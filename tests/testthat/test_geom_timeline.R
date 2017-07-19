@@ -9,24 +9,22 @@
 ## created: 19.07.2017                                last update: 19.07.2017 ##
 ################# ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ #################
 
-context("clean data")
+context("GEOM Timeline")
 
-# load data from package
-df <- NOAAearthquakes
+
 df_clean <- eq_clean_data()
 
-test_that("MMORALES:Is eq_clean_data() function working properly (??)", {
+obj_out <- df_clean %>% dplyr::filter(COUNTRY %in% c('RUSSIA', 'JAPAN')) %>%
+        dplyr::filter(date > '2000-01-01') %>%
+        ggplot() +
+        geom_timeline(aes(x = date, y = COUNTRY, color = TOTAL_DEATHS,
+                          size = EQ_PRIMARY))
 
 
+test_that("MMORALES: Is GEOM Timeline function giving back ggplot object (??)", {
 
-        # expect_equal(ncol(df), ncol(df_clean))
-        # expect_equal(nrow(df), nrow(df_clean))
-        expect_is(df_clean$date, "Date")
-        expect_is(df_clean$LATITUDE, "numeric")
-        expect_is(df_clean$LONGITUDE, "numeric")
-        expect_is(df_clean$DEATHS, "integer")   # you could reformat the column into numeric, theoretically.
-                                                # But I kept it. Does 3.5 deaths make sense?
-        expect_is(df_clean$EQ_PRIMARY, "numeric")
+
+        expect_s3_class(obj_out, 'ggplot')
 
 })
 

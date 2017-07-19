@@ -5,11 +5,12 @@
 \alias{world}
 \title{World Shapefile}
 \format{A spatial polygon data frame with 241 elements. Each element represents a
-  polygon of a country.
-
-  @source From the NBatural Earth Data Homepage: zip file with the name:
-    'ne_50m_admin_0_countries.zip'
-    \url{www.naturalearthdata.com/download/50m/cultural}}
+  polygon of a country.}
+\source{
+From the Natural Earth Data Homepage: zip file with the name:
+    'ne_50m_admin_0_countries.zip'.
+    \url{www.naturalearthdata.com/download/50m/cultural}
+}
 \usage{
 world
 }

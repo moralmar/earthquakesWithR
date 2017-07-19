@@ -6,7 +6,7 @@
 ##                              Marco R. Morales                              ##
 ##                                                                            ##
 ##                                                                            ##
-## created: 15.07.2017                                last update: 15.07.2017 ##
+## created: 15.07.2017                                last update: 19.07.2017 ##
 ################# ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ #################
 
 
@@ -54,7 +54,9 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
 #' Outsourced function which builts the plot.
 #'
 #' @importFrom ggplot2 ggproto
-#' @importFrom grid pointsGrob gpar
+#' @importFrom grid pointsGrob
+#' @importFrom grid gpar
+#'
 #' @param data earth quake data set
 #' @param panel_scales I don't know what that is
 #' @param coord transformed data set
@@ -67,8 +69,14 @@ draw_panel_function <- function(data, panel_scales, coord) {
         ##     (this is rather generic)
         coords <- coord$transform(data, panel_scales)
 
-        # resizing the oints
-        coords$size <- coords$size / base::max(coords$size) * 1.3
+        # this geom can't handle a NA in size
+        # (it wouldn't know what size the point should have)
+        # therefore:
+        coords <- coords[!base::is.na(coords$size), ]
+
+        # resizing the points
+        max_size <- base::max(coords$size)
+        coords$size <- coords$size / max_size * 1.3
 
         # base::cat("==================================== coords ====================================\n")
         # base::cat("================================================================================ \n\n")
@@ -76,7 +84,6 @@ draw_panel_function <- function(data, panel_scales, coord) {
         # base::cat("...\n")
         # base::print(base::tail(coords))
         # base::cat("=================================================================================== \n\n")
-
 
         grid::pointsGrob(
                 x = coords$x,
@@ -106,6 +113,7 @@ draw_panel_function <- function(data, panel_scales, coord) {
 #'
 #' @format NULL
 #' @usage NULL
+#'
 #' @export
 geom_timeline_proto_class <- ggplot2::ggproto("geom_timeline_proto_class", ggplot2::Geom,
 

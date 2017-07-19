@@ -6,11 +6,11 @@ require(devtools)
 # 2) ----------------------------------------------------------
 # to update the documentation
 devtools::document()
-# You can check the documentation with check_man().
 # This returns nothing when it’s good. Iterate between check_man()
 # and document() to fix all errors.
 devtools::load_all()
 devtools::check_man()
+
 
 # 3) ) ----------------------------------------------------------
 # use_vignette("vignette_intro.rmd")

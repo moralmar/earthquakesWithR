@@ -3,10 +3,10 @@
 \docType{data}
 \name{geom_timeline_label_proto_class}
 \alias{geom_timeline_label_proto_class}
-\title{Function creates the new geom (geom_timeline_label)
+\title{Function creates the new geom: geom_timeline_label.
 draw_panel_function is outsourced...looks nicer}
 \description{
-Function creates the new geom (geom_timeline_label)
+Function creates the new geom: geom_timeline_label.
 draw_panel_function is outsourced...looks nicer
 }
 \keyword{datasets}

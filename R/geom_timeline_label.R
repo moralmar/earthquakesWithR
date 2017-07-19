@@ -32,6 +32,7 @@
 #' Function which builts the layer for the ggplot
 #'
 #' @importFrom ggplot2 layer
+#'
 #' @param mapping See \code{ggplot2} \code{\link[ggplot2]{layer}}
 #' @param data See \code{ggplot2} \code{\link[ggplot2]{layer}}
 #' @param stat See \code{ggplot2} \code{\link[ggplot2]{layer}}
@@ -57,7 +58,13 @@ geom_timeline_label <- function(mapping = NULL, data = NULL, stat = "identity",
 
 
 
-
+# @importFrom ggplot2 ggproto
+# @importFrom ggplot2 ggname
+# @importFrom grid pointsGrob
+# @importFrom grid gpar
+# @param data earth quake data set
+# @param panel_scales I don't know what that is
+# @param coord transformed data set
 
 
 ## function: draw_panel_function  ------------------------------------------------
@@ -66,11 +73,8 @@ geom_timeline_label <- function(mapping = NULL, data = NULL, stat = "identity",
 
 #' Outsourced function which builts the plot
 #'
-#' @importFrom ggplot2 ggproto ggname
-#' @importFrom grid pointsGrob gpar
-#' @param data earth quake data set
-#' @param panel_scales I don't know what that is
-#' @param coord transformed data set
+#' @format NULL
+#' @usage NULL
 #'
 #' @export
 draw_panel_function_label <- function(data, panel_scales, coord) {
@@ -136,7 +140,7 @@ draw_panel_function_label <- function(data, panel_scales, coord) {
         # data$color <- "red"
         gg_text <- ggplot2::GeomText$draw_panel(data, panel_scales, coord)
 
-        ggplot2::ggname("geom_timeline_label", grid::grobTree(gg_vertical, gg_text, gg_point))
+        ggplot2:::ggname("geom_timeline_label", grid::grobTree(gg_vertical, gg_text, gg_point))
 
 } # END draw_panel_function_label
 
@@ -155,10 +159,14 @@ draw_panel_function_label <- function(data, panel_scales, coord) {
 # @param draw_key function to draw the legend with the associated geom
 # @param draw_panel where the magic is happening
 
+# @importFrom ggplot2 ggproto
+# @importFrom ggplot2 Geom
+# @importFrom ggplot2 aes
+# @importFrom ggplot2 draw_key_point
 
-#' Function creates the new geom (geom_timeline_label)
+
+#' Function creates the new geom: geom_timeline_label.
 #' draw_panel_function is outsourced...looks nicer
-#'
 #'
 #' @format NULL
 #' @usage NULL

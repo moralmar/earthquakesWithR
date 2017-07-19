@@ -108,7 +108,8 @@ handle_positive_dates <- function(y, m, d) {
 #'
 #' @importFrom magrittr "%>%"
 #' @importFrom purrr map2_chr
-#' @importFrom stringr str_trim str_to_title
+#' @importFrom stringr str_trim
+#' @importFrom stringr str_to_title
 #' @importFrom dplyr mutate
 #'
 #' @return it returns the data frame back, but with the mutated LOCATION_NAME

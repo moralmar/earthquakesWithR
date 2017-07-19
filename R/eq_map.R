@@ -25,7 +25,7 @@
 #'
 #' @importFrom rgdal readOGR
 #' @importFrom magrittr "%>%"
-#' @importFrom dplyr mutate_ gpar
+#' @importFrom dplyr mutate_
 #' @importFrom leaflet leaflet addTiles addProviderTiles addPolygons addCircleMarkers
 #' @importFrom stringr str_to_title
 #'

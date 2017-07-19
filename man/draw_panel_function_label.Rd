@@ -3,16 +3,6 @@
 \name{draw_panel_function_label}
 \alias{draw_panel_function_label}
 \title{Outsourced function which builts the plot}
-\usage{
-draw_panel_function_label(data, panel_scales, coord)
-}
-\arguments{
-\item{data}{earth quake data set}
-
-\item{panel_scales}{I don't know what that is}
-
-\item{coord}{transformed data set}
-}
 \description{
 Outsourced function which builts the plot
 }

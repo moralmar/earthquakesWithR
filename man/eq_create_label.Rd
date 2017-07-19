@@ -18,9 +18,12 @@ in the pop-up
 }
 \examples{
 require(magrittr)
-eq_clean_data() \%>\%
+data("NOAAearthquakes")
+
+map_example <- NOAAearthquakes \%>\%
 dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) \%>\%
 dplyr::mutate(popup_text = eq_create_label(.)) \%>\%
 eq_map(annot_col = "popup_text")
+map_example
 
 }

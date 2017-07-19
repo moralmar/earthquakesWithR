@@ -9,7 +9,9 @@ License: CC0
 Encoding: UTF-8
 LazyData: true
 Suggests: knitr,
-    rmarkdown
+    rmarkdown,
+    ggthemes,
+    lubridate
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 Imports: dplyr (>= 0.5),
@@ -18,4 +20,5 @@ Imports: dplyr (>= 0.5),
     purrr (>= 0.2.2),
     stringr (>= 1.2.0), 
     magrittr,
-    rgdal
+    rgdal, 
+    readr

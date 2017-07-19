@@ -36,7 +36,14 @@
 #' @examples
 #' handle_negative_dates(-100, 1, 1)
 #'
+#' @export
+#'
 handle_negative_dates <- function(y, m, d) {
+
+        # to do:
+        #     a check if year (y) from input
+        #     is really negative.
+        #     if not: ERROR
 
         origin_date <- base::as.numeric(as.Date("0 1 1", "%Y %m %d", origin = "1970-01-01"))
         # > origin_date
@@ -85,6 +92,9 @@ handle_negative_dates <- function(y, m, d) {
 #'
 #' @examples
 #' handle_positive_dates(2010, 10, 10)
+#'
+#' @export
+#'
 handle_positive_dates <- function(y, m, d) {
         date_paste <- base::paste0(y, "-", m, "-", d)
         date_new <- base::as.Date(date_paste, format = "%Y-%m-%d")
@@ -179,7 +189,8 @@ eq_clean_data <- function() {
 
         # (!!) original name of data is "results"
         # (!!) rename it to NOAAearthquakes
-
+        # data("NOAAearthquakes")
+        # data <- NOAAearthquakes %>%
         data <- readr::read_tsv("./inst/extdata/NOAAearthquakes") %>%
 
                 # replacing NA's in MONTH

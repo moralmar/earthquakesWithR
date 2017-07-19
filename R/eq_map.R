@@ -33,9 +33,12 @@
 #'
 #' @examples
 #' require(magrittr)
-#' eq_clean_data() %>%
+#' data("NOAAearthquakes")
+#'
+#' map_ex <- NOAAearthquakes %>%
 #' dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
 #' eq_map(annot_col = "date")
+#' map_ex
 #'
 #' @export
 eq_map <- function(data_filtered, annot_col = "date") {
@@ -111,10 +114,13 @@ eq_map <- function(data_filtered, annot_col = "date") {
 #'
 #' @examples
 #' require(magrittr)
-#' eq_clean_data() %>%
+#' data("NOAAearthquakes")
+#'
+#' map_example <- NOAAearthquakes %>%
 #' dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
 #' dplyr::mutate(popup_text = eq_create_label(.)) %>%
 #' eq_map(annot_col = "popup_text")
+#' map_example
 #'
 #' @export
 eq_create_label <- function(data) {

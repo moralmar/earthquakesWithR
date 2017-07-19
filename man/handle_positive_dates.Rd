@@ -26,4 +26,5 @@ as a date class. very simple function.
 }
 \examples{
 handle_positive_dates(2010, 10, 10)
+
 }

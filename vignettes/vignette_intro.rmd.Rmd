@@ -1,13 +1,18 @@
 ---
-title: "Package earthquakesWithR - What it can do"
+title: "Vignette - Package earthquakesWithR"
 author: "mmorales"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Vignette - Package earthquakesWithR}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
 
 A brief overview was already given in the `README.md` file. Here in this vignette, we will examine futher exampmles and try to go to the limits of the package. This document is splitted in two main sections:  
 

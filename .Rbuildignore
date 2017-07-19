@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^README-.*\.png$
+^000_setting_up_package\.R$
+^000_main\.R$
+^\.travis\.yml$

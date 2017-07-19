@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "Package earthquakesWithR - What it can do"
+author: "mmorales"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -9,50 +9,125 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+A brief overview was already given in the `README.md` file. Here in this vignette, we will examine futher exampmles and try to go to the limits of the package. This document is splitted in two main sections:  
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+- **Earth quakes and Timeline** - What can be done and its limits  
+- **Earth quakes and Leaflet map** - What can be done and its limits
 
-## Vignette Info
+You can install `earthquakesWithR` from github with:
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
-
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("moralmar/earthquakesWithR")
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+## Earth quakes and Timeline
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+Let's investigate a few exmaple with the timeline functions give by the package
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+```{r, message=FALSE, warning=FALSE, fig.width = 7.2, fig.asp = .4}
+require(earthquakesWithR)
+require(magrittr) # for piping operator
+require(dplyr) # for filter/subsetting functions
+require(ggplot2) # should be obvious :)
+require(ggthemes) # for the theme_classic()
 
-## More Examples
+CentralEurope <- c("AUSTRIA", "GERMANY", "HUNGARY", "LIECHTENSTEIN", "POLAND", "SLOVENIA", "SWITZERLAND")
 
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+# Load the data and filter it accordingly to your needs
+data("NOAAearthquakes")
+quakes_CentEU <- NOAAearthquakes %>%
+        filter(COUNTRY %in% CentralEurope & YEAR >= 0)
 
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+# single country without labels
+ggplot() +
+        geom_timeline(data = quakes_CentEU, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
+        theme_classic()
 ```
 
-Also a quote using `>`:
+```{r, fig.asp=.8, fig.width=7.2, message=FALSE, warning=FALSE}
+Europe <- c("AZORES (PORTUGAL)", "ALBANIA", "ANDORRA", "AUSTRIA", "BELARUS", "BELGIUM", "BOSNIA-HERZEGOVINA", "BOSNIA", "HERZEGOVINA2", "BULGARIA", "CROATIA", "CYPRUS", "CZECH REPUBLIC", "DENMARK", "FINLAND", "FRANCE", "GEORGIA", "GEROMANY", "GREECE", "HUNGARY", "ICELAND", "IRELAND", "ITALY", "KOSOVO", "LIECHTENSTEIN", "LUXEMBOURG", "MACEDONIA", "MALTA", "MOLDOVA", "MONACO", "MONTENEGRO", "NETHERLANDS", "NORWAY", "POLAND", "PORTUGAL", "ROMANIA", "SAN MARINO", "SERBIA", "SERBIA AND MONTENEGRO", "SLOVAKIA", "SLOVENIA", "SPAIN", "SWEDEN", "SWITZERLAND", "TURKEY", "UKRAINE", "UK", "UK TERRITORY", "VATICAN CITY")
+quakes_EU <- NOAAearthquakes %>%
+        filter(COUNTRY %in% Europe & YEAR >= 0)
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+# single country without labels
+ggplot() +
+        geom_timeline(data = quakes_EU, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
+        theme_classic()
+
+ggplot() +
+        geom_timeline(data = quakes_EU, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
+        geom_timeline_label(data = quakes_EU, aes(x = date,
+                                                 y = COUNTRY,
+                                                 magnitude = EQ_PRIMARY,
+                                                 label = LOCATION_NAME,
+                                                 n_max = 1)) +
+        theme_classic()
+
+
+```
+
+```{r, message=FALSE, warning=FALSE, fig.width = 7.2, fig.asp = .5}
+SouthAmerica <- c("ARGENTINA", "BOLIVIA", "BRAZIL", "CHILE", "COLOMBIA", "ECUADOR", "GUYANA", "PARAGUAY", "PERU", "SURINAME", "URUGUAY", "VENEZUELA")
+quakes_SA <- NOAAearthquakes %>%
+        filter(COUNTRY %in% SouthAmerica & YEAR >= 0)
+
+# single country without labels
+ggplot() +
+        geom_timeline(data = quakes_SA, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
+        theme_classic()
+
+
+ggplot() +
+        geom_timeline(data = quakes_SA, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
+        geom_timeline_label(data = quakes_SA, aes(x = date,
+                                                 y = COUNTRY,
+                                                 magnitude = EQ_PRIMARY,
+                                                 label = LOCATION_NAME,
+                                                 n_max = 1)) +
+        theme_classic()
+
+```
+
+#### Conclusion
+
+As we have seen in the `README.md`, the timeline functions work very well for 1-3 countries. We see here, it works for multiple countries, too, however, the labeling should be improved on. We see that the labels are being cut off by the ggplot-object.  
+Now let's see what the leaflet map shows us for these subsets
+
+## Earth quakes and Leaflet map
+
+We directly take the above defined subsets:  
+- earth quakes in Central Europe  
+- earth quakes in Europe  
+- earth quakes in South America  
+
+**(!!)** You'll see on the map that the countries are sourrended with a polygon. Please note that only countries which encountered and earth quake are marked with a polygon. If nothing happend, no polygon is shown.  
+
+### Central Europe - A.D. until today
+```{r, fig.width = 7.2, fig.asp = 1}
+require(leaflet)
+
+quakes_CentEU %>%
+        dplyr::mutate(popup_text = eq_create_label(.)) %>%
+        eq_map(annot_col = "popup_text")
+```
+
+### Europe - 2010 until today
+```{r, fig.width = 7.2, fig.asp = 1}
+quakes_EU %>%
+        dplyr::filter(lubridate::year(date) >= 2010) %>% # additional subset, or else too many points
+        dplyr::mutate(popup_text = eq_create_label(.)) %>%
+        eq_map(annot_col = "popup_text")
+```
+
+### South America - 2010 until tolday
+```{r, fig.width = 7.2, fig.asp = 1}
+quakes_SA %>%
+        dplyr::filter(lubridate::year(date) >= 2010) %>% # additional subset, or else too many points
+        dplyr::mutate(popup_text = eq_create_label(.)) %>%
+        eq_map(annot_col = "popup_text")
+```
+
+#### Conclusion
+
+The leaflet maps work very well. Future work still can be done, for instance the circle representations of the earth quakes can be improved on (play around with transparency and size, etc.)

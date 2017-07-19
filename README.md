@@ -11,10 +11,6 @@ The goal of `earthquakesWithR` is to give a few handy visualization tools for th
 - **eq\_map()** - a function creating a `leaflet` map and visualizing the earth quakes
 - **eq\_create\_label()** - is a helper function, creating a nice pop-ups in the leaflet map
 
-#### Ike Storm 2008-09-13 12:00:00
-
-This plot is one of the results coming from the assignment ![alt text](https://raw.githubusercontent.com/moralmar/geom_hurricane/master/020_figures/hurricane_ike.png)
-
 Installation
 ------------
 
@@ -109,11 +105,19 @@ ggplot() +
 Example - Leaflet Map
 ---------------------
 
-Besides the added timeline geom-functions, the package provides a few function which helps to easily create a `leaflet map`. What these functions do is shown below. Keep in mind that these are static maps, respectively print screens of the leaflet map (because the README.rm is a static file format).
+Besides the added timeline geom-functions, the package provides a few function which helps to easily create a `leaflet map`. What these functions do is shown below. Keep in mind that this is static maps, respectively a print screen of the leaflet map (because the README.rm is a static file format). It shows the two main functions in action:
+
+-   **eq\_map()** - the base function creating a `leaflet` map and visualizing the earth quakes
+-   **eq\_create\_label()** - is a helper function, creating a nice pop-ups in the leaflet map
 
 ``` r
 # in addition to the earthquakesWithR package, we need:
 require(leaflet)
-#> Loading required package: leaflet
-#> Warning: package 'leaflet' was built under R version 3.3.3
+
+eq_clean_data() %>%
+        dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
+        dplyr::mutate(popup_text = eq_create_label(.)) %>%
+        eq_map(annot_col = "popup_text")
 ```
+
+![alt text](https://raw.githubusercontent.com/moralmar/earthquakesWithR/master/vignettes/Mexico_better.PNG)

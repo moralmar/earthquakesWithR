@@ -57,6 +57,10 @@ use_data(NOAAearthquakes)
 devtools::document()
 devtools::check()
 
+# 8) testthat  --------------------------------------------------
+devtools::use_testthat()        # page 82 // addes directory
+                                # addes field in DESCRIPTION
+
 # 14) Travis  ---------------------------------------------------
 devtools::use_travis()
 

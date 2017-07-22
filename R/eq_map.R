@@ -23,7 +23,7 @@
 #' @param data_filtered A dataframe
 #' @param annot_col Which column shall be displayed in the pop-up
 #'
-#' @importFrom rgdal readOGR
+# @importFrom rgdal readOGR
 #' @importFrom magrittr "%>%"
 #' @importFrom dplyr mutate_
 #' @importFrom leaflet leaflet addTiles addProviderTiles addPolygons addCircleMarkers

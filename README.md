@@ -1,5 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR)
+
 earthquakesWithR
 ================
 
@@ -120,4 +122,4 @@ eq_clean_data() %>%
         eq_map(annot_col = "popup_text")
 ```
 
-![alt text](https://raw.githubusercontent.com/moralmar/earthquakesWithR/master/vignettes/Mexico_better.PNG)
+![alt text](https://raw.githubusercontent.com/moralmar/earthquakesWithR/master/vignettes/Mexico_better_60.PNG)

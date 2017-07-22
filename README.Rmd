@@ -1,5 +1,7 @@
 ---
-output: github_document
+output: 
+  github_document:
+    toc: true # table of content true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -15,7 +17,7 @@ knitr::opts_chunk$set(
 [![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR)
 
 # earthquakesWithR
-
+output: github_document
 The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:  
 - **geom_timeline()** - which is a specific geom for the `ggplot2` package  
 - **geom_timeline_label()** - which is an extension for the above geom  

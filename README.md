@@ -1,11 +1,17 @@
 
+-   [earthquakesWithR](#earthquakeswithr)
+    -   [Installation](#installation)
+    -   [Data](#data)
+    -   [Example - Timeline](#example---timeline)
+    -   [Example - Leaflet Map](#example---leaflet-map)
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR)
 
 earthquakesWithR
 ================
 
-The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:
+output: github\_document The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:
 - **geom\_timeline()** - which is a specific geom for the `ggplot2` package
 - **geom\_timeline\_label()** - which is an extension for the above geom
 - **eq\_location\_clean()** - which is a helper function, cleaning the NOAA dataset

@@ -26,7 +26,6 @@ Imports: dplyr (>= 0.7.1),
     lubridate (>= 1.6.0),
     sp (>= 1.2.5)
 Depends: R (>= 3.3.1)
-
 URL: https://github.com/moralmar/earthquakesWithR
 BugReports: https://github.com/moralmar/earthquakesWithR/issues
 

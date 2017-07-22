@@ -122,4 +122,4 @@ eq_clean_data() %>%
         eq_map(annot_col = "popup_text")
 ```
 
-![alt text](https://raw.githubusercontent.com/moralmar/earthquakesWithR/master/vignettes/Mexico_better_40.PNG)
+![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/vignettes/Mexico60.png?raw=true)

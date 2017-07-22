@@ -12,9 +12,12 @@ warnings_are_errors: false # NEW
 sudo: false
 cache: packages
 
-# r_packages:
-#   - covr
+r_packages:
+  - rgdal
 #   - DT
 #   - pheatmap
 
+# https://github.com/travis-ci/travis-ci/issues/6850
 
+# r_github_packages:
+#   - cran/survival

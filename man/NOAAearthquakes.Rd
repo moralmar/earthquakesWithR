@@ -3,11 +3,10 @@
 \docType{data}
 \name{NOAAearthquakes}
 \alias{NOAAearthquakes}
-\title{NOAA Significant Earthquakes}
-\format{A data frame of 5934 observations of 47 variables.  For variable
+\title{NOAA Significant Earthquakes - CLEANED version}
+\format{A data frame of 5952 observations of 48 variables.  For variable
   definitions please see the "Event Variable Definitions" link at the url
-  below. These data were pulled on April 1, 2017; see source for any updated
-  data after this date.}
+  below.}
 \source{
 National Geophysical Data Center / World Data Service (NGDC/WDS):
   Significant Earthquake Database. National Geophysical Data Center, NOAA.
@@ -18,10 +17,6 @@ National Geophysical Data Center / World Data Service (NGDC/WDS):
 NOAAearthquakes
 }
 \description{
-"The Significant Earthquake Database contains information on destructive
-earthquakes from 2150 B.C. to the present that meet at least one of the
-following criteria: Moderate damage (approximately $1 million or more), 10 or
-more deaths, Magnitude 7.5 or greater, Modified Mercalli Intensity X or
-greater, or the earthquake generated a tsunami."
+This is the cleaned version of the earth quakes data.
 }
 \keyword{datasets}

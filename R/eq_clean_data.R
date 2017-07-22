@@ -189,9 +189,9 @@ eq_clean_data <- function() {
 
         # (!!) original name of data is "results"
         # (!!) rename it to NOAAearthquakes
-        # data("NOAAearthquakes")
-        # data <- NOAAearthquakes %>%
-        data <- readr::read_tsv("./inst/extdata/NOAAearthquakes") %>%
+        data("NOAAearthquakesRAW")
+        data <- NOAAearthquakesRAW %>%
+        # data <- readr::read_tsv("./inst/extdata/NOAAearthquakes") %>%
 
                 # replacing NA's in MONTH
                 #     This is not that good

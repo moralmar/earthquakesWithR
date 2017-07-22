@@ -23,3 +23,9 @@ cache: packages
 #   - cran/survival
 before_install:
   Rscript -e 'update.packages(ask = FALSE)'
+
+
+notifications:
+  email:
+    on_success: always
+    on_failure: always

@@ -12,8 +12,8 @@ warnings_are_errors: false # NEW
 sudo: false
 cache: packages
 
-r_packages:
-  - rgdal
+# r_packages:
+#   - rgdal
 #   - DT
 #   - pheatmap
 
@@ -21,3 +21,5 @@ r_packages:
 
 # r_github_packages:
 #   - cran/survival
+before_install:
+  Rscript -e 'update.packages(ask = FALSE)'

@@ -53,6 +53,9 @@ NOAAearthquakes <- eq_clean_data()
 use_data(NOAAearthquakes)
 
 
+
+
+
 # 7) Check ------------------------------------------------------
 devtools::document()
 devtools::load_all()

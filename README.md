@@ -3,7 +3,7 @@
 earthquakesWithR <img src="man/figures/logo1.jpg" align="right" height="220" width="240"/>
 ==========================================================================================
 
-[![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR) [![GitHub version](https://badge.fury.io/gh/earthquakesWithR.svg)](http://badge.fury.io/gh/earthquakesWithR) [![Code Climate](https://codeclimate.com/github/earthquakesWithR/badges.svg)](https://codeclimate.com/github/earthquakesWithR/badges)
+[![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR) [![GitHub version](https://badge.fury.io/gh/earthquakesWithR.svg)](http://badge.fury.io/gh/earthquakesWithR) [![Code Climate](https://codeclimate.com/github/earthquakesWithR/badges.svg)](https://codeclimate.com/github/earthquakesWithR/badges) [![GitHub version](https://badge.fury.io/gh/moralmar%2FearthquakesWithR.svg)](https://badge.fury.io/gh/moralmar%2FearthquakesWithR)
 
 The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:
 - **geom\_timeline()** - which is a specific geom for the `ggplot2` package

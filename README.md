@@ -1,17 +1,11 @@
 
--   [earthquakesWithR](#earthquakeswithr)
-    -   [Installation](#installation)
-    -   [Data](#data)
-    -   [Example - Timeline](#example---timeline)
-    -   [Example - Leaflet Map](#example---leaflet-map)
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+earthquakesWithR <img src="man/figures/logo1.jpg" align="right" height="180" width="200"/>
+==========================================================================================
+
 [![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR)
 
-earthquakesWithR
-================
-
-output: github\_document The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:
+The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:
 - **geom\_timeline()** - which is a specific geom for the `ggplot2` package
 - **geom\_timeline\_label()** - which is an extension for the above geom
 - **eq\_location\_clean()** - which is a helper function, cleaning the NOAA dataset
@@ -22,7 +16,7 @@ output: github\_document The goal of `earthquakesWithR` is to give a few handy v
 Installation
 ------------
 
-You can install `earthquakesWithR` from github with:
+align="right" / You can install `earthquakesWithR` from github with:
 
 ``` r
 # install.packages("devtools")
@@ -58,7 +52,9 @@ require(magrittr) # for piping operator
 require(dplyr) # for filter/subsetting functions
 require(ggplot2) # should be obvious :)
 require(ggthemes) # for the theme_classic()
+```
 
+``` r
 # Load the data and filter it accordingly to your needs
 quakes <- eq_clean_data()
 quakes_filtered <- quakes %>%
@@ -70,7 +66,7 @@ ggplot() +
         theme_classic()
 ```
 
-![](README-unnamed-chunk-2-1.png)
+![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/vignettes/README-unnamed-chunk-2-1.png?raw=true)
 
 ``` r
 # Load the data and filter it accordingly to your needs
@@ -89,7 +85,7 @@ ggplot() +
         theme_classic()
 ```
 
-![](README-unnamed-chunk-3-1.png)
+![](README-unnamed-chunk-4-1.png)
 
 ``` r
 # Load the data and filter it accordingly to your needs
@@ -108,7 +104,7 @@ ggplot() +
         theme_classic()
 ```
 
-![](README-unnamed-chunk-4-1.png)
+![](README-unnamed-chunk-5-1.png)
 
 Example - Leaflet Map
 ---------------------

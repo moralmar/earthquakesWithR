@@ -1,7 +1,7 @@
 ---
 output: 
   github_document:
-    toc: true # table of content true
+    #toc: true # table of content true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -14,10 +14,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+
+# earthquakesWithR <img src="man/figures/logo1.jpg" align="right" height="180" width="200"/>
+
 [![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR)
 
-# earthquakesWithR
-output: github_document
 The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:  
 - **geom_timeline()** - which is a specific geom for the `ggplot2` package  
 - **geom_timeline_label()** - which is an extension for the above geom  
@@ -28,7 +30,7 @@ The goal of `earthquakesWithR` is to give a few handy visualization tools for th
 
 
 ## Installation
-
+align="right" /
 You can install `earthquakesWithR` from github with:
 
 ```{r gh-installation, eval = FALSE}
@@ -57,13 +59,16 @@ Here are three simple examples, showing
 - a single country with labels  
 - and showing multiple countries, also with lables
 
-```{r, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .32}
+```{r, message=FALSE, warning=FALSE}
 require(earthquakesWithR)
 require(magrittr) # for piping operator
 require(dplyr) # for filter/subsetting functions
 require(ggplot2) # should be obvious :)
 require(ggthemes) # for the theme_classic()
+```
 
+
+```{r, eval=FALSE, fig.asp=.32, fig.width=15, message=FALSE, warning=FALSE}
 # Load the data and filter it accordingly to your needs
 quakes <- eq_clean_data()
 quakes_filtered <- quakes %>%
@@ -74,8 +79,10 @@ ggplot() +
         geom_timeline(data = quakes_filtered, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
         theme_classic()
 ```
+![alt text](https://github.com/moralmar/earthquakesWithR/blob/man/figures/vignettes/README-unnamed-chunk-3-1.png?raw=true)
 
-```{r, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .32}
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .32}
 # Load the data and filter it accordingly to your needs
 quakes <- eq_clean_data()
 quakes_filtered <- quakes %>%
@@ -91,6 +98,7 @@ ggplot() +
                                                  n_max = 6)) +
         theme_classic()
 ```
+![alt text](https://github.com/moralmar/earthquakesWithR/blob/man/figures/vignettes/README-unnamed-chunk-4-1.png?raw=true)
 
 
 ```{r, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .42}
@@ -109,7 +117,7 @@ ggplot() +
                                                  n_max = 4)) +
         theme_classic()
 ```
-
+![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-5-1.png?raw=true)
 
 ## Example - Leaflet Map
 

@@ -1,7 +1,15 @@
 
+-   [earthquakesWithR](#earthquakeswithr)
+    -   [Installation](#installation)
+    -   [Data](#data)
+    -   [Example - Timeline](#example---timeline)
+    -   [Example - Leaflet Map](#example---leaflet-map)
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-earthquakesWithR <img src="man/figures/logo1.jpg" align="right" height="220" width="240"/>
-==========================================================================================
+<img src="man/figures/logo1.jpg" align="right" height="220" width="240"/>
+
+earthquakesWithR
+================
 
 [![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR) [![GitHub version](https://badge.fury.io/gh/moralmar%2FearthquakesWithR.svg)](https://badge.fury.io/gh/moralmar%2FearthquakesWithR)
 

@@ -1,7 +1,7 @@
 ---
 output: 
   github_document:
-    # toc: true # table of content true
+    toc: true # table of content true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -16,7 +16,10 @@ knitr::opts_chunk$set(
 
 
 
-# earthquakesWithR <img src="man/figures/logo1.jpg" align="right" height="220" width="240"/>
+
+<img src="man/figures/logo1.jpg" align="right" height="220" width="240"/>  
+  
+# earthquakesWithR 
 
 [![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR)

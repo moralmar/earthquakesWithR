@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "man/figures/README-"
 )
 ```
 
@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 [![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR)
 [![GitHub version](https://badge.fury.io/gh/moralmar%2FearthquakesWithR.svg)](https://badge.fury.io/gh/moralmar%2FearthquakesWithR)
+[![packageversion](https://img.shields.io/badge/Package%20version-0.2.0-orange.svg?style=flat-square)]()
 
 The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:  
 - **geom_timeline()** - which is a specific geom for the `ggplot2` package  
@@ -35,7 +36,7 @@ The goal of `earthquakesWithR` is to give a few handy visualization tools for th
 
 
 ## Installation
-align="right" /
+
 You can install `earthquakesWithR` from github with:
 
 ```{r gh-installation, eval = FALSE}
@@ -62,9 +63,12 @@ data("world")
 Here are three simple examples, showing  
 - a single country without labels  
 - a single country with labels  
-- and showing multiple countries, also with lables
+- and showing multiple countries, also with lables  
+  
+More complex examples can be found in the [vignette](https://github.com/moralmar/earthquakesWithR/blob/master/vignettes/vignette_intro.rmd.Rmd).
 
-```{r, message=FALSE, warning=FALSE}
+
+```{r load_packages, message=FALSE, warning=FALSE}
 require(earthquakesWithR)
 require(magrittr) # for piping operator
 require(dplyr) # for filter/subsetting functions
@@ -72,8 +76,8 @@ require(ggplot2) # should be obvious :)
 require(ggthemes) # for the theme_classic()
 ```
 
-
-```{r, eval=FALSE, fig.asp=.32, fig.width=15, message=FALSE, warning=FALSE}
+eval=FALSE
+```{r timeline1, fig.asp=.32, fig.width=15, message=FALSE, warning=FALSE}
 # Load the data and filter it accordingly to your needs
 quakes <- eq_clean_data()
 quakes_filtered <- quakes %>%
@@ -87,7 +91,7 @@ ggplot() +
 ![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-3-1.png?raw=true)
 
 
-```{r, eval=FALSE, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .32}
+```{r timeline2, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .32}
 # Load the data and filter it accordingly to your needs
 quakes <- eq_clean_data()
 quakes_filtered <- quakes %>%
@@ -106,7 +110,7 @@ ggplot() +
 ![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-4-1.png?raw=true)
 
 
-```{r, eval=FALSE, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .42}
+```{r timeline3, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .42}
 # Load the data and filter it accordingly to your needs
 quakes <- eq_clean_data()
 quakes_filtered <- quakes %>%
@@ -131,7 +135,7 @@ Besides the added timeline geom-functions, the package provides a few function w
 - **eq_map()** - the base function creating a `leaflet` map and visualizing the earth quakes  
 - **eq_create_label()** - is a helper function, creating a nice pop-ups in the leaflet map  
 
-```{r, eval=FALSE, eval = FALSE}
+```{r leaflet1, eval=FALSE, eval = FALSE}
 # in addition to the earthquakesWithR package, we need:
 require(leaflet)
 

@@ -11,7 +11,7 @@
 earthquakesWithR
 ================
 
-[![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR) [![GitHub version](https://badge.fury.io/gh/moralmar%2FearthquakesWithR.svg)](https://badge.fury.io/gh/moralmar%2FearthquakesWithR)
+[![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR) [![GitHub version](https://badge.fury.io/gh/moralmar%2FearthquakesWithR.svg)](https://badge.fury.io/gh/moralmar%2FearthquakesWithR) [![packageversion](https://img.shields.io/badge/Package%20version-0.2.0-orange.svg?style=flat-square)]()
 
 The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:
 - **geom\_timeline()** - which is a specific geom for the `ggplot2` package
@@ -24,7 +24,7 @@ The goal of `earthquakesWithR` is to give a few handy visualization tools for th
 Installation
 ------------
 
-align="right" / You can install `earthquakesWithR` from github with:
+You can install `earthquakesWithR` from github with:
 
 ``` r
 # install.packages("devtools")
@@ -54,6 +54,8 @@ Here are three simple examples, showing
 - a single country with labels
 - and showing multiple countries, also with lables
 
+More complex examples can be found in the [vignette](https://github.com/moralmar/earthquakesWithR/blob/master/vignettes/vignette_intro.rmd.Rmd).
+
 ``` r
 require(earthquakesWithR)
 require(magrittr) # for piping operator
@@ -61,6 +63,8 @@ require(dplyr) # for filter/subsetting functions
 require(ggplot2) # should be obvious :)
 require(ggthemes) # for the theme_classic()
 ```
+
+eval=FALSE
 
 ``` r
 # Load the data and filter it accordingly to your needs
@@ -74,7 +78,7 @@ ggplot() +
         theme_classic()
 ```
 
-![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-3-1.png?raw=true)
+![](man/figures/README-timeline1-1.png) ![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-3-1.png?raw=true)
 
 ``` r
 # Load the data and filter it accordingly to your needs
@@ -93,7 +97,7 @@ ggplot() +
         theme_classic()
 ```
 
-![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-4-1.png?raw=true)
+![](man/figures/README-timeline2-1.png) ![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-4-1.png?raw=true)
 
 ``` r
 # Load the data and filter it accordingly to your needs
@@ -112,7 +116,7 @@ ggplot() +
         theme_classic()
 ```
 
-![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-5-1.png?raw=true)
+![](man/figures/README-timeline3-1.png) ![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-5-1.png?raw=true)
 
 Example - Leaflet Map
 ---------------------

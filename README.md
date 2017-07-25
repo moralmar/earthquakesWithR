@@ -54,7 +54,7 @@ Here are three simple examples, showing
 - a single country with labels
 - and showing multiple countries, also with lables
 
-More complex examples can be found in the [vignette](https://github.com/moralmar/earthquakesWithR/blob/master/vignettes/vignette_intro.rmd.Rmd).
+More complex examples can be found in the [vignette](https://github.com/moralmar/earthquakesWithR/blob/master/vignettes/vignette_intro.rmd.Rmd) and also on my [RPubs](https://rpubs.com/mmorales/293182).
 
 ``` r
 require(earthquakesWithR)

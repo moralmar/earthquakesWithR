@@ -9,8 +9,6 @@
 ## created: 15.07.2017                                last update: 15.07.2017 ##
 ################# ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ #################
 
-
-
 # To start with a geom, we start with defining the following functions:
 #     1) geom_xxxxx                     function defining the layer
 #     2) geom_xxxxx_proto_class         creates proto class, corresponding to the geom
@@ -18,10 +16,6 @@
 #     3) draw_panel_function            this is the "working horse
 #                                       either keep it in the geom_xxxxx_proto_class, or
 #                                       outsource it (like I do, here)
-
-
-
-
 
 ## function: geom_timeline_label (building the layer)  --------------------------------
 ##     quite generic

@@ -11,7 +11,7 @@
 earthquakesWithR
 ================
 
-[![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR) [![GitHub version](https://badge.fury.io/gh/moralmar%2FearthquakesWithR.svg)](https://badge.fury.io/gh/moralmar%2FearthquakesWithR) [![packageversion](https://img.shields.io/badge/Package%20version-0.2.0-orange.svg?style=flat-square)]()
+[![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR) [![GitHub version](https://badge.fury.io/gh/moralmar%2FearthquakesWithR.svg)](https://badge.fury.io/gh/moralmar%2FearthquakesWithR) [![codecov](https://codecov.io/gh/moralmar/earthquakesWithR/branch/master/graph/badge.svg)](https://codecov.io/gh/moralmar/earthquakesWithR)
 
 The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:
 - **geom\_timeline()** - which is a specific geom for the `ggplot2` package
@@ -78,7 +78,7 @@ ggplot() +
         theme_classic()
 ```
 
-![](man/figures/README-timeline1-1.png) ![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-3-1.png?raw=true)
+![](man/figures/README-timeline1-1.png)
 
 ``` r
 # Load the data and filter it accordingly to your needs
@@ -97,7 +97,7 @@ ggplot() +
         theme_classic()
 ```
 
-![](man/figures/README-timeline2-1.png) ![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-4-1.png?raw=true)
+![](man/figures/README-timeline2-1.png)
 
 ``` r
 # Load the data and filter it accordingly to your needs
@@ -116,7 +116,7 @@ ggplot() +
         theme_classic()
 ```
 
-![](man/figures/README-timeline3-1.png) ![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-5-1.png?raw=true)
+![](man/figures/README-timeline3-1.png)
 
 Example - Leaflet Map
 ---------------------

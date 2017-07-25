@@ -24,7 +24,8 @@ knitr::opts_chunk$set(
 [![Build Status](https://travis-ci.org/moralmar/earthquakesWithR.svg?branch=master)](https://travis-ci.org/moralmar/earthquakesWithR)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/earthquakesWithR)](http://cran.r-project.org/package=earthquakesWithR)
 [![GitHub version](https://badge.fury.io/gh/moralmar%2FearthquakesWithR.svg)](https://badge.fury.io/gh/moralmar%2FearthquakesWithR)
-[![packageversion](https://img.shields.io/badge/Package%20version-0.2.0-orange.svg?style=flat-square)]()
+[![codecov](https://codecov.io/gh/moralmar/earthquakesWithR/branch/master/graph/badge.svg)](https://codecov.io/gh/moralmar/earthquakesWithR)
+
 
 The goal of `earthquakesWithR` is to give a few handy visualization tools for the NOAA data set. It provides to the user of this package the following functions:  
 - **geom_timeline()** - which is a specific geom for the `ggplot2` package  
@@ -88,7 +89,6 @@ ggplot() +
         geom_timeline(data = quakes_filtered, aes(x = date, y = COUNTRY, color = TOTAL_DEATHS, size = EQ_PRIMARY)) +
         theme_classic()
 ```
-![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-3-1.png?raw=true)
 
 
 ```{r timeline2, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .32}
@@ -107,7 +107,7 @@ ggplot() +
                                                  n_max = 6)) +
         theme_classic()
 ```
-![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-4-1.png?raw=true)
+
 
 
 ```{r timeline3, message=FALSE, warning=FALSE,  fig.width = 15, fig.asp = .42}
@@ -126,7 +126,7 @@ ggplot() +
                                                  n_max = 4)) +
         theme_classic()
 ```
-![alt text](https://github.com/moralmar/earthquakesWithR/blob/master/man/figures/README-unnamed-chunk-5-1.png?raw=true)
+
 
 ## Example - Leaflet Map
 

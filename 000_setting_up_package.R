@@ -70,15 +70,4 @@ devtools::use_testthat()        # page 82 // addes directory
 devtools::use_travis()  # (!!) use once - gives yaml file
 
 
-# source....
 
-# EASY & WORKS
-# eq_clean_data() %>%
-#         dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
-#         eq_map(annot_col = "date")
-# #
-# #
-# eq_clean_data() %>%
-#         dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
-#         dplyr::mutate(popup_text = eq_create_label(.)) %>%
-#         eq_map(annot_col = "popup_text")

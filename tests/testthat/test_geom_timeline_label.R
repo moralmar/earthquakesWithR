@@ -26,11 +26,14 @@ obj_out <- df_clean %>% dplyr::filter(COUNTRY %in% c('USA', 'PERU')) %>%
                                 n_max = 2))
 
 
-test_that("MMORALES: Is GEOM_Timeline + GEOM_Timeline_Label functions TOGETHER giving back ggplot object (??)", {
+obj_layer <- ggplot2::layer_data(obj_out)
 
 
+
+
+test_that("MMORALES: Is GEOM_Timeline + GEOM_Timeline_Label functions TOGETHER (??)", {
         expect_s3_class(obj_out, 'ggplot')
-
+        expect_length(unique(obj_layer$y), 2) #because: two countries definied, USA and PERU
 })
 
 

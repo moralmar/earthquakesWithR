@@ -26,8 +26,8 @@ ncol_obj_out <- ncol(obj_out)
 
 
 test_that("MMORALES: Checking Labels of Leaflet Map (??)", {
-        expect_is(obj_out$popup_text, "character")
-        expect_equal(ncol_df_clean, ncol_obj_out - 1)
+        expect_is(obj_out$popup_text, "character") # clear (!!)
+        expect_equal(ncol_df_clean, ncol_obj_out - 1) # did we add an extra column? but just one (!!)
 })
 
 
